@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konatham Jyothi Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Existing styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #e3f2fd, #d5c0df);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+          background: linear-gradient(to right, #4facfe, #00f2fe);
+          color: white;
+          padding: 20px 0;
+          text-align: center;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+      }
+      
+      header h1 {
+          margin: 0;
+          font-size: 3em;
+          text-align: center;
+      }
+      
+      header p {
+          font-size: 1.2em;
+          margin-top: 10px;
+          text-align: center;
+      }
+
+        nav {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1em;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #4facfe;
+        }
+
+        .hamburger {
+          display: none;
+          font-size: 2rem;
+          cursor: pointer;
+        }
+    
+      .nav-links {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+        }
+
+        section {
+          text-align: center;
+            padding: 20px 20px;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .about-me {
+            text-align: center;
+        }
+
+        .about-me img {
+            width: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 4px solid #3a7bd5;
+        }
+
+        .projects, .skills, .certificates, .achievements, .hobbies, .testimonials {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            width: 280px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer a {
+            color: #4facfe;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .projects, .skills, .certificates, .achievements, .hobbies, .testimonials {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .card {
+                width: 90%;
+            }
+
+            .section-title {
+                font-size: 2em;
+                margin-bottom: 15px;
+            }
+        }
+
+        .education-certifications {
+          display: flex;
+          justify-content: center; /* Align items in the center horizontally */
+          gap: 20px; /* Add space between cards */
+          flex-wrap: wrap; /* Allow wrapping on smaller screens */
+      }
+      
+      /* Centered Heading Style */
+      /* Ensure proper centering of headings */
+      .centered-heading {
+        font-size: 2.5em;
+        font-weight: bold;
+        color: #333;
+        margin: 0 auto; /* Center horizontally */
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        text-align: center; /* Center text */
+        position: relative;
+        width: 100%; /* Ensure it takes up full width for alignment */
+      }
+
+      .centered-heading::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: #4facfe;
+        margin: 10px auto; /* Center the underline */
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+      }
+
+      @keyframes slideInFromBottom {
+        from {
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+      }
+
+      /* Responsive styling */
+      @media (max-width: 768px) {
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        nav a {
+            font-size: 0.9em;
+        }
+
+        .card {
+            width: 90%;
+        }
+
+        .centered-heading {
+            font-size: 2.5em;
+        }
+      }
+
+      /* Mobile Navigation */
+  @media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 10px;
+        color: white;
+    }
+    
+  }
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Mobile Filter Styling */
+  .mobile-filter {
+    display: none;
+    width: 90%;
+    margin: 15px auto;
+    padding: 12px;
+    font-size: 1em;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: #b1a9c6;
+    box-shadow: 0 4px 8px rgba(229, 211, 14, 0.3);
+    text-align: center;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    position: relative;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath fill='%23333333' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-filter:hover {
+    background: linear-gradient(135deg, #fad0c4, #ff9a9e);
+    box-shadow: 0 6px 12px rgba(220, 47, 17, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .mobile-filter:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 154, 158, 0.5);
+  }
+
+  .mobile-filter option {
+    color: #d41919;
+    background: #fff;
+    padding: 10px;
+  }
+
+  /* Fixing Three-Line Dropdown Arrow */
+  .mobile-filter::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #d22c13;
+  }
+
+  /* Media Query for Mobile */
+  @media (max-width: 768px) {
+    .mobile-filter {
+      display: block;
+      color: #fff;
+    }
+  }
+
+  .resume-section {
+    text-align: center;
+    margin: 50px 0;
+  }
+  
+  .resume-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .download-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .download-button:hover {
+    background-color: #0056b3;
+  }
+
+  .hidden {
+    display: none;
+  }
+  
+  #toast-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  
+  
+    </style>
+</head>
+<body>
+  <header>
+    <h1><i class="fas fa-user-circle"></i> Konatham Jyothi</h1>
+    <p><i class="fas fa-laptop-code"></i> Java Developer | Full-Stack Developer | Tech Enthusiast</p>
+</header>
+
+    <nav>
+      <span class="hamburger"><i class="fas fa-bars"></i></span>
+      <div class="nav-links">
+          <a href="#about"><i class="fas fa-info-circle"></i> About Me</a>
+          <a href="#resume"><i class="fas fa-download"></i> Resume</a>
+          <a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a>
+          <a href="#skills"><i class="fas fa-tools"></i> Skills</a>
+          <a href="#tools"><i class="fas fa-wrench"></i> Tools</a>
+          <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
+          <a href="#certificates"><i class="fas fa-certificate"></i> Certificates</a>
+          <a href="#achievements"><i class="fas fa-trophy"></i> Achievements</a>
+          <a href="#hobbies"><i class="fas fa-heart"></i> Hobbies</a>
+          <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+         
+
+      </div>
+
+      <!-- Mobile Dropdown Filter -->
+        <select id="mobile-filter" class="mobile-filter">
+            <option value="">-- Select Section --</option>
+            <option value="#about">About Me</option>
+            <option value="#resume">Resume</option>
+            <option value="#projects">Projects</option>
+            <option value="#skills">Skills</option>
+            <option value="#tools">Tools</option>
+            <option value="#education">Education</option>
+            <option value="#certificates">Certificates</option>
+            <option value="#achievements">Achievements</option>
+            <option value="#hobbies">Hobbies</option>
+            <option value="#contact">Contact</option>
+        </select>
+
+    </nav>
+
+    <section id="about" class="about-me">
+      <h2 class="centered-heading">About Me</h2>
+      <!-- <img src="images/profile_jyothi.jpg" alt="Konatham Jyothi"> -->
+      <a href="https://ibb.co/7tsBwQwB"><img src="https://i.ibb.co/0yH1gKg1/profile-jyothi.jpg" alt="profile-jyothi" border="0"></a>
+      <p>Hello! I am <b>Konatham Jyothi</b>, a passionate software developer skilled in <b>Java, MySQL, HTML, CSS, and JavaScript.</b> I enjoy creating real-world solutions and collaborating on exciting projects.</p>
+  </section>
+
+  <section id="resume" class="resume-section">
+    <h2 class="centered-heading">Resume</h2>
+    <p>Click the button below to download my resume:</p>
+    <a id="resume-download" href="Resume/Jyothi_Java developer.pdf" download="Jyothi_Java developer.pdf" class="download-button">
+      <i class="fas fa-download"></i> Download Resume
+    </a>
+    <div id="toast-message" class="hidden">Your resume download is complete!</div>
+  </section>
+  
+  <section id="projects" class="projects">
+      <h2 class="centered-heading">My Projects</h2>
+      <div class="card">
+         <img src="https://i.ibb.co/tMVMxWwf/instrument.jpg" alt="instrument" border="0"></a>
+          <h3>Interactive Music Learning Platform</h3>
+          <p>Music instruments are the creative tools that bring melodies to life, evoking emotions and connecting people across cultures and generations.</p>
+          <a href="https://github.com/Jyothikonatham/Interactive-Music.git" target="_blank">View on GitHub</a>
+      </div>
+      <div class="card">
+      <img src="https://i.ibb.co/v69Fhqfr/ice.jpg" alt="ice" border="0"></a>
+          <h3>Indulge in your favorite ice cream flavors!</h3>
+          <p>Our ice cream shop offers unique flavors like matcha green tea, lavender honey, and cardamom pistachio, crafted for discerning palates.</p>
+          <a href="https://github.com/Jyothikonatham/Ice-cream" target="_blank">View on GitHub</a>
+      </div>
+      <div class="card">
+      <img src="https://i.ibb.co/zhqVygyt/make.jpg" alt="make" border="0"></a>
+        <h3>Cosmatic Store (personal small project)</h3>
+        <p>A makeup store sells beauty products to help people look their best.</p>
+        <a href="https://github.com/Jyothikonatham/konathamjyothi.git" target="_blank">View on GitHub</a>
+      </div>
+      <div class="card">
+       <img src="https://i.ibb.co/HDsrt2BW/portifilo.jpg" alt="portifilo" border="0"></a>
+        <h3>Portfolio - web application</h3>
+        <p>A web-based application todo list the users will select based on their interest. 🚀</p>
+        <a href="https://github.com/Jyothikonatham/task-4.git" target="_blank">View on GitHub</a>
+      </div>
+  </section>
+  
+  <section id="skills" class="skills">
+      <h2 class="centered-heading">Skills</h2>
+      <div class="card"><h3>Java</h3></div>
+      <div class="card"><h3>JDBC</h3></div>
+      <div class="card"><h3>MySQL</h3></div>
+      <div class="card"><h3>HTML & CSS</h3></div>
+      <div class="card"><h3>JavaScript</h3></div>
+      <div class="card"><h3>GitHub</h3></div>
+      
+  </section>
+
+  <section id="tools" class="skills">
+    <h2 class="centered-heading">Tools</h2>
+    <div class="card"><h3>Eclipse</h3></div>
+    <div class="card"><h3>Intelij</h3></div>
+    <div class="card"><h3>VS Code</h3></div>
+    <div class="card"><h3>GitHub</h3></div>
+  </section>
+  
+  <section id="education" class="education-certifications">
+      <h2 class="centered-heading">Education</h2>
+      <div class="card">
+          <h3>Sri Padmavati Mahila Visvavidyalayam, Tirupati</h3>
+          <span><pre><b>MCA   2023 — 2025</b></pre> </span>
+          <p>Grade: 8.34</p>
+      </div>
+      <div class="card">
+          <h3>Gowtham Degree College, Cumbum</h3>
+          <span><pre><b>B.Sc (MPCS)   2020 — 2023</b></pre> </span>
+          <p>Grade: 8.83</p>
+      </div>
+      <div class="card">
+        <h3>Gowtham Junior College, Cumbum</h3>
+        <span><pre><b>Intermediate (MPC)   2018 — 2020</b></pre> </span>
+        <p>Grade: 9.53</p>
+      </div>
+  </section>
+  <section id="certificates" class="education-certifications">
+    <h2 class="centered-heading">Certificates</h2>
+    <div class="card">
+        <h3>Introduction to Java Programming</h3>
+        <img src="https://i.ibb.co/3mZDJcR3/edx.jpg" alt="Certificate 1">
+    </div>
+    <div class="card">
+        <h3>Career Essentials in Software Development by Microsoft and linkedIn</h3>
+        <img src="https://i.ibb.co/nqFqz6yF/microsoft.jpg" alt="Certificate 1">
+    </div>
+    <div class="card">
+      <h3>tcsioN - Certificate of Achievement</h3>
+      <img src="https://i.ibb.co/dqsHprz/tcs.jpg" alt="tcs" border="0"></a>
+    </div>
+  </section>
+  
+  <section id="achievements" class="achievements">
+      <h2 class="centered-heading">Achievements</h2>
+      <div class="card">
+          <p>Certified in "Internet of things" by NPTEL (87%)</p>
+      </div>
+      <div class="card">
+          <p>Received Prize in Graduation Secured Highest Marks  </p>
+      </div>
+  </section>
+  
+  <section id="hobbies" class="hobbies">
+      <h2 class="centered-heading">Hobbies & Interests</h2>
+      <div class="card">
+          <h3>Playing - Badminton</h3>
+      </div>
+      <div class="card">
+          <h3>Singing</h3>
+      </div>
+      <div class="card">
+          <h3>Editing</h3>
+      </div>
+  </section>
+  
+  <section id="contact" class="contact">
+    <h2 class="centered-heading">Contact Me</h2>
+    <p>
+        <a href="mailto:konathamjyothi456@gmail.com" style="text-decoration: none; color: inherit;">
+            <i class="fas fa-envelope"></i> konathamjyothi456@gmail.com
+        </a>
+    </p>
+    <p>
+        <a href="https://www.linkedin.com/in/jyothi-konatham-mca" target="_blank" style="text-decoration: none; color: inherit;">
+            <i class="fab fa-linkedin"></i> Jyothi konatham
+        </a>
+    </p>
+    <p>
+        <a href="https://github.com/Jyothikonatham" target="_blank" style="text-decoration: none; color: inherit;">
+            <i class="fab fa-github"></i> Jyothikonatham
+        </a>
+    </p>
+    <p>Let's collaborate and build something great together!</p>
+</section>
+
+</body>
+<script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const mobileFilter = document.getElementById('mobile-filter');
+  
+    // Toggle navigation links on hamburger click
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      document.body.classList.toggle('no-scroll');
+    });
+  
+    // Navigate to the selected section on mobile filter change
+    mobileFilter.addEventListener('change', (event) => {
+      const sectionId = event.target.value;
+      if (sectionId) {
+        document.querySelector(sectionId).scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+  const sections = document.querySelectorAll('section');
+
+    const revealSections = () => {
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= window.innerHeight * 0.75) {
+                section.classList.add('visible');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', revealSections);
+    revealSections(); // Trigger on load
+
+    document.getElementById('resume-download').addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent default link behavior to control the flow
+      
+        // Show the toast message
+        const toast = document.getElementById('toast-message');
+        toast.classList.remove('hidden');
+        
+        // Allow download to proceed after showing the toast
+        setTimeout(() => {
+          window.location.href = e.target.href; // Trigger the download
+          // Hide the toast after 3 seconds
+          setTimeout(() => {
+            toast.classList.add('hidden');
+          }, 3000);
+        }, 500); // Simulate a delay before starting download
+      });
+      
+      
+
+</script>
+
+</html>
